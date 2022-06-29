@@ -4,14 +4,14 @@
           <tr>
             <th style="background-color:#2196f3;color:#EEE"  width="5%">Line</th>
             <% 
-              data.table_column.forEach(col => { 
+              table_column.forEach(col => { 
             %>
               <th style="background-color:#2196f3;color:#EEE" ><%=col%> </th>
               <% }) %>
           </tr>
         </thead>
         <tbody>
-          <% data.list.forEach((item,idx) => { %>
+          <% list.forEach((item,idx) => { %>
               <tr>
                  <td><%= idx+1 %> </td>
                  <td><%= item["User ID"] %> </td>
@@ -24,8 +24,8 @@
             </tbody>
               <tfoot>
                   <tr>
-                  <td colspan="<%= data.table_column.length+1 %>" style="text-align: center;">
-                    Total:<%=data.list.length%>
+                  <td colspan="<%= table_column.length+1 %>" style="text-align: center;">
+                    Total:<%=list.length%>
                     </td>
                   </tr>
               </tfoot>

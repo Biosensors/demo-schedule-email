@@ -3,17 +3,15 @@ const path=require("path");
 exports.generateHtml=function(params){
     try {
         let template =params.template;
-        let options={
+        let data={
             nameOfUser:params.userName,
             greetingMessage:params.greetingMessage||"How are you!",
             otherInformation:params.otherInformation||"Please find the report below:",
-            data:{
-                table_column:params.table_column,
-                list:params.list
-            }
+            table_column:params.table_column,
+            list:params.list
         }
         return new Promise((resolve, reject) => {
-            ejs.renderFile(path.join(__dirname, `./${template}`), options, {},function(err, html){
+            ejs.renderFile(path.join(__dirname, `./${template}`), data, {},function(err, html){
                 if (err) {
                     reject(err);
                    } else {
