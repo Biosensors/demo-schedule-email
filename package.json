@@ -1,9 +1,11 @@
 {
   "name": "demo-yunlin",
   "version": "1.0.0",
-  "description": "Demo for Yunlin's team, talking about the schedule job, send email and HTML rendering in backend",
+  "description": "Demo for Yunlin's team, presenting the schedule job, send email and HTML rendering in backend",
   "main": "index.js",
   "scripts": {
+    "start":"node schedule.js",
+    "manual":"node manualStart.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
