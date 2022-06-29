@@ -1,0 +1,33 @@
+<div style="margin:10px 10px 10px 10px" >
+    <table cellpadding="2" cellspacing="0" border="1" style="width:100%;border-color:#90C3D4;font-size:13pt">
+        <thead>
+          <tr>
+            <th style="background-color:#2196f3;color:#EEE"  width="5%">Line</th>
+            <% 
+              data.table_column.forEach(col => { 
+            %>
+              <th style="background-color:#2196f3;color:#EEE" ><%=col%> </th>
+              <% }) %>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.list.forEach((item,idx) => { %>
+              <tr>
+                 <td><%= idx+1 %> </td>
+                 <td><%= item["User ID"] %> </td>
+                 <td><%= item["First Name"] %> </td>
+                 <td><%= item["Last Name"] %> </td>
+                 <td><%= item["Company"] %> </td>
+                 <td><%= item["Function"] %> </td>
+              </tr>
+             <% }) %>
+            </tbody>
+              <tfoot>
+                  <tr>
+                  <td colspan="<%= data.table_column.length+1 %>" style="text-align: center;">
+                    Total:<%=data.list.length%>
+                    </td>
+                  </tr>
+              </tfoot>
+          </table>
+        </div>

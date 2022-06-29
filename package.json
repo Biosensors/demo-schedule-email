@@ -1,0 +1,22 @@
+{
+  "name": "demo-yunlin",
+  "version": "1.0.0",
+  "description": "Demo for Yunlin's team, talking about the schedule job, send email and HTML rendering in backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "demo",
+    "yunlin"
+  ],
+  "author": "Yadong Zhu",
+  "license": "ISC",
+  "dependencies": {
+    "@breejs/later": "^4.1.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "nodemailer": "^6.7.5",
+    "xlsx-populate": "^1.21.0"
+  }
+}
