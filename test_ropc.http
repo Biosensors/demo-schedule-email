@@ -1,0 +1,18 @@
+@host=https://login.microsoftonline.com
+@tenant_id=b64948ea-2e8c-4541-a5ae-d3c999f25bd2
+@client_id=18fcb914-4aff-4716-acc4-b0658c9b4dd8
+@scope=user.read%20openid%20profile%20offline_access
+@username=dev-webservice.bs@biosensors.com
+@password=Xod68598
+@grant_type=password
+
+POST {{host}}/{{tenant_id}}/oauth2/v2.0/token
+Content-Type: application/json
+
+{
+    "client_id":"18fcb914-4aff-4716-acc4-b0658c9b4dd8"
+   ,"scope":"user.read%20openid%20profile%20offline_access" 
+   ,"username":"dev-webservice.bs@biosensors.com" 
+   ,"password":"Xod68598" 
+   ,"grant_type":"password" 
+}

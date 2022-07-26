@@ -3,7 +3,7 @@ const empData=require("./emp.json");
 
 (async function(){
     let params = {
-        userName:"Ya Dong",
+        userName:"Yun lin",
         greetingMessage:"I hope you are doing well!",
         otherInformation:"Please find the attached report.",
         table_column:["User ID","First Name","Last Name","Company","Function"],
