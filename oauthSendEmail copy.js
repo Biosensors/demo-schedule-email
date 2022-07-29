@@ -1,9 +1,6 @@
 require("dotenv").config();
-const fs = require('fs');
 const msal = require('@azure/msal-node');
     const fetch = require('node-fetch');
-    const axios = require("axios");
-const { fromString } = require("html-to-text");
 
     const clientSecret = process.env.CLIENT_SECRET;
     const clientId = process.env.CLIENT_ID;
@@ -54,28 +51,25 @@ const { fromString } = require("html-to-text");
           '<h1>MicrosoftGraph Yadong Sample</h1>This is the email body1111',
         contentType: 'html',
       },
-      attachments:[
-        {
-          "@odata.type": "#microsoft.graph.fileAttachment",
-          "contentBytes": fs.readFileSync("final-line-20181128.xlsx",{encoding:'base64'}),
-          "name": "final-line-20181128.xlsx"
-        }
-      ]
     };
-  const bearer = `Bearer ${tokenInfo.accessToken}`;
-  
-  let options={
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': bearer
-      },
-      method:'POST',
-      url:graphEndpoint + `/v1.0/users/${process.env.EMAIL_USER}/sendMail`,
-      data:JSON.stringify({ message: mail, saveToSentItems: true })
+    
+    const headers = new fetch.Headers();
+    const bearer = `Bearer ${tokenInfo.accessToken}`;
+    
+    headers.append('Authorization', bearer);
+    headers.append('Content-Type', 'application/json');
+    
+    const options = {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ message: mail, saveToSentItems: false }),
     };
     let response;
     try {
-       response=await axios(options);
+       response=await fetch(
+        graphEndpoint + `/v1.0/users/${process.env.EMAIL_USER}/sendMail`,
+        options
+      );
       console.log(`status is:${response.status}`)
       
     } catch (error) {
